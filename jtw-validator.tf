@@ -23,7 +23,7 @@ resource "aws_ecs_task_definition" "jtw-api" {
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
-        "awslogs-group": "backend-log-group",
+        "awslogs-group": "backend-challenge-log-group",
         "awslogs-region": "us-east-1",
         "awslogs-stream-prefix": "jtw-api"
       }
