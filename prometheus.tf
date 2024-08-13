@@ -39,12 +39,12 @@ resource "aws_ecs_task_definition" "prometheus" {
 
               - job_name: 'flask_app'
                 static_configs:
-                  - targets: ['192.168.100.4:5000']
+                  - targets: ['192.168.100.10:5000']
           EOT
         }
       ]
       command = [
-        "/bin/sh", "-c", "echo \"$PROMETHEUS_CONFIG\" > /etc/prometheus/prometheus.yml && /bin/prometheus --config.file=/etc/prometheus/prometheus.yml"
+        "sh", "-c", "echo \"$PROMETHEUS_CONFIG\" > /etc/prometheus/prometheus.yml && /bin/prometheus --config.file=/etc/prometheus/prometheus.yml"
       ]
       logConfiguration = {
         logDriver = "awslogs"
