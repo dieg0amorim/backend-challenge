@@ -1,5 +1,5 @@
-resource "aws_ecs_task_definition" "jtw-api" {
-  family                   = "my-task-jtw-api"
+resource "aws_ecs_task_definition" "jwt-api" {
+  family                   = "my-task-jwt-api"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   execution_role_arn       = aws_iam_role.ecs_execution_role.arn
