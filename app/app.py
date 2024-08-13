@@ -1,46 +1,11 @@
-import jwt
-from jwt.exceptions import InvalidTokenError
-import math
 from flask import Flask, request, jsonify
+from prometheus_flask_exporter import PrometheusMetrics
+from utils.jwt_validator import JWTValidator
 
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
 
-def is_prime(num):
-    if num <= 1:
-        return False
-    if num <= 3:
-        return True
-    if num % 2 == 0 or num % 3 == 0:
-        return False
-    i = 5
-    while i * i <= num:
-        if num % i == 0 or num % (i + 2) == 0:
-            return False
-        i += 6
-    return True
-
-def validate_jwt(token):
-    try:
-        decoded = jwt.decode(token, options={"verify_signature": False})
-        
-        if len(decoded) != 3:
-            return False
-        
-        if not all(key in decoded for key in ["Name", "Role", "Seed"]):
-            return False
-        
-        if any(char.isdigit() for char in decoded["Name"]) or len(decoded["Name"]) > 256:
-            return False
-        
-        if decoded["Role"] not in ["Admin", "Member", "External"]:
-            return False
-        
-        if not is_prime(int(decoded["Seed"])):
-            return False
-        
-        return True
-    except (InvalidTokenError, ValueError):
-        return False
+jwt_validator = JWTValidator()
 
 @app.route('/validate', methods=['POST'])
 def validate():
@@ -49,7 +14,7 @@ def validate():
     if not token:
         return jsonify({"valid": False, "error": "Token is missing"}), 400
     
-    is_valid = validate_jwt(token)
+    is_valid = jwt_validator.validate(token)
     return jsonify({"valid": is_valid})
 
 if __name__ == '__main__':
