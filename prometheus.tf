@@ -16,11 +16,11 @@ resource "aws_ecs_task_definition" "prometheus" {
 [
   {
     "name": "my-container",
-    "image": "devdihdca/backend-challenge:latest",
+    "image": "devdihdca/prometheus:latest",
     "portMappings": [
       {
-        "containerPort":5000,
-        "hostPort": 5000
+        "containerPort":9090,
+        "hostPort": 9090
       }
     ],
     "logConfiguration": {
