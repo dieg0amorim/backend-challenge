@@ -1,5 +1,5 @@
-resource "aws_ecs_task_definition" "jtw-api" {
-  family                   = "my-task-jtw-api"
+resource "aws_ecs_task_definition" "jwt-api" {
+  family                   = "my-task-jwt-api"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   execution_role_arn       = aws_iam_role.ecs_execution_role.arn
@@ -25,7 +25,7 @@ resource "aws_ecs_task_definition" "jtw-api" {
       "options": {
         "awslogs-group": "backend-challenge-log-group",
         "awslogs-region": "us-east-1",
-        "awslogs-stream-prefix": "jtw-api"
+        "awslogs-stream-prefix": "jwt-api"
       }
     }
   }
@@ -33,10 +33,10 @@ resource "aws_ecs_task_definition" "jtw-api" {
 EOF
 }
 
-resource "aws_ecs_service" "jtw-api_service" {
-  name            = "jtw-api-service"
+resource "aws_ecs_service" "jwt-api_service" {
+  name            = "jwt-api-service"
   cluster         = aws_ecs_cluster.my_cluster.id
-  task_definition = aws_ecs_task_definition.jtw-api.arn
+  task_definition = aws_ecs_task_definition.jwt-api.arn
   launch_type     = "FARGATE"
 #  desired_count = 1
 
