@@ -64,6 +64,13 @@ resource "aws_security_group" "security_group" {
     cidr_blocks = ["0.0.0.0/0"] # Isso permite o acesso de qualquer endereço
   }
 
+    ingress {
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # Isso permite o acesso de qualquer endereço
+  }
+
   # Regra de saída para acesso à Internet
   egress {
     from_port   = 0
