@@ -38,7 +38,7 @@ resource "aws_ecs_service" "jwt-api_service" {
   cluster         = aws_ecs_cluster.my_cluster.id
   task_definition = aws_ecs_task_definition.jwt-api.arn
   launch_type     = "FARGATE"
-#  desired_count = 1
+  desired_count = 1
 
   network_configuration {
     subnets = [aws_subnet.public_subnet.id]

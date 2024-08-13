@@ -39,18 +39,18 @@ resource "aws_ecs_task_definition" "prometheus" {
 
               - job_name: 'flask_app'
                 static_configs:
-                  - targets: ['192.168.100.4:5000']
+                  - targets: ['192.168.100.10:5000']
           EOT
         }
       ]
       command = [
-        "/bin/sh", "-c", "echo \"$PROMETHEUS_CONFIG\" > /etc/prometheus/prometheus.yml && /bin/prometheus --config.file=/etc/prometheus/prometheus.yml"
+        "sh", "-c", "echo \"$PROMETHEUS_CONFIG\" > /etc/prometheus/prometheus.yml && /bin/prometheus --config.file=/etc/prometheus/prometheus.yml"
       ]
       logConfiguration = {
         logDriver = "awslogs"
         options = {
           awslogs-group         = aws_cloudwatch_log_group.prometheus_logs.name
-          awslogs-region        = "us-east-1"
+          awslogs-region        = "us-west-2"
           awslogs-stream-prefix = "prometheus"
         }
       }
