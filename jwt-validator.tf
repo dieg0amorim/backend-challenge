@@ -25,7 +25,7 @@ resource "aws_ecs_task_definition" "jwt-api" {
       "options": {
         "awslogs-group": "backend-challenge-log-group",
         "awslogs-region": "us-east-1",
-        "awslogs-stream-prefix": "jtw-api"
+        "awslogs-stream-prefix": "jwt-api"
       }
     }
   }
@@ -33,10 +33,10 @@ resource "aws_ecs_task_definition" "jwt-api" {
 EOF
 }
 
-resource "aws_ecs_service" "jtw-api_service" {
-  name            = "jtw-api-service"
+resource "aws_ecs_service" "jwt-api_service" {
+  name            = "jwt-api-service"
   cluster         = aws_ecs_cluster.my_cluster.id
-  task_definition = aws_ecs_task_definition.jtw-api.arn
+  task_definition = aws_ecs_task_definition.jwt-api.arn
   launch_type     = "FARGATE"
 #  desired_count = 1
 
