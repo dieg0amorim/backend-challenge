@@ -11,51 +11,29 @@ resource "aws_ecs_task_definition" "prometheus" {
   cpu = "512"  # 2 vCPUs
   memory = "4096"  # 4GB de memória
   depends_on = [ aws_cloudwatch_log_group.example ]
-  
-  
 
-  container_definitions = jsonencode([
-    {
-      name      = "prometheus"
-      image     = "prom/prometheus:latest"
-      portMappings = [
-        {
-          containerPort = 9090
-          hostPort      = 9090
-        }
-      ]
-      environment = [
-        {
-          name  = "PROMETHEUS_CONFIG"
-          value = <<-EOT
-            global:
-              scrape_interval:     15s
-              evaluation_interval: 15s
-
-            scrape_configs:
-              - job_name: 'prometheus'
-                static_configs:
-                  - targets: ['localhost:9090']
-
-              - job_name: 'flask_app'
-                static_configs:
-                  - targets: ['192.168.100.10:5000']
-          EOT
-        }
-      ]
-      command = [
-        "sh", "-c", "echo \"$PROMETHEUS_CONFIG\" > /etc/prometheus/prometheus.yml && /bin/prometheus --config.file=/etc/prometheus/prometheus.yml"
-      ]
-      logConfiguration = {
-        logDriver = "awslogs"
-        options = {
-          awslogs-group         = aws_cloudwatch_log_group.prometheus_logs.name
-          awslogs-region        = "us-east-1"
-          awslogs-stream-prefix = "prometheus"
-        }
+  container_definitions = <<EOF
+[
+  {
+    "name": "my-container",
+    "image": "devdihdca/backend-challenge:latest",
+    "portMappings": [
+      {
+        "containerPort":5000,
+        "hostPort": 5000
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "/ecs/prometheus",
+        "awslogs-region": "us-east-1",
+        "awslogs-stream-prefix": "prometheus"
       }
     }
-  ])
+  }
+]  
+EOF
 }
 
 
