@@ -153,8 +153,79 @@ Arquivo terraform para deploy das configurações de rede como VPC,subnets,IGW, 
 
 Arquivo terraform para deploy de prometheus em task ecs na AWS.
 
+## Deploy de infraestrutura na AWS
 
-## Como Executar a Aplicação
+### Github Actions - Workflow - Terraform Cloud
+
+Dentro do diretório: github/workflows contém os arquivos terraform-plan.yml e terraform-apply.yml onde é disparado a esteira de validações CI/CD para provisionamento da infraestrutura na AWS.
+
+Terraform Plan
+
+<img width="942" alt="image" src="https://github.com/user-attachments/assets/a81e2914-f439-440b-afee-7f01407d65f0">
+
+
+Terraform Apply
+
+<img width="942" alt="image" src="https://github.com/user-attachments/assets/1fa12810-e7ac-4e57-944e-962721ae4127">
+
+
+Simultaneamente no terraform cloud as "runs" vão sendo executadas onde esta configurado as informações da conta aws que será provisionada.
+
+<img width="943" alt="terrraform cloud" src="https://github.com/user-attachments/assets/cb8bd230-e735-4a8c-9d3d-0c1d6478a418">
+
+
+## Cluster ECS - AWS
+
+Cluster "backend-challenge" provisionado para rodar os serviços e tasks ECS.
+
+<img width="959" alt="cluster ecs" src="https://github.com/user-attachments/assets/43c644a4-62d7-45e4-9c07-fe0c3dc30ed0">
+
+### No cluster ECS, encontraremos os seguintes serviços:
+
+- JWT API service
+- Prometheus
+- Grafana
+
+<img width="958" alt="services ecs" src="https://github.com/user-attachments/assets/60a839eb-5eaf-4180-8dca-c012fd28dca1">
+
+## Log groups configurados no cloudwatch para analise dos logs:
+
+<img width="949" alt="cw aws loggroups" src="https://github.com/user-attachments/assets/1fd22a55-f45c-4bed-9b26-e4944260c45f">
+
+
+### Logs:
+
+<img width="956" alt="cw logs jwt" src="https://github.com/user-attachments/assets/467de2a9-ee24-4a17-8190-5791aa027de6">
+
+
+### API:
+
+<img width="955" alt="api ecs" src="https://github.com/user-attachments/assets/c07cc19e-3299-4655-8b19-f1fa1f0cb927">
+
+### API NETWORK:
+
+
+<img width="950" alt="api network" src="https://github.com/user-attachments/assets/9ed412a8-c0a4-4d4b-80a5-300f400aa132">
+
+## Prometheus Service
+
+<img width="938" alt="image" src="https://github.com/user-attachments/assets/fb3f4d20-882c-4960-b841-ac77a9d22154">
+
+
+## Grafana Service:
+
+### Dashboard flask:
+
+<img width="950" alt="image" src="https://github.com/user-attachments/assets/254193ea-2d9f-4da9-b407-0c82b1aeaecc">
+
+
+
+### Dashboard de monitoração do próprio prometheus:
+
+<img width="956" alt="image" src="https://github.com/user-attachments/assets/c4770e8f-1f29-4d2e-8d52-b97ade875338">
+
+
+## Como Executar a Aplicação Local
 
 ### Com Docker
 
@@ -171,7 +242,7 @@ bash
 docker run -d -p 5000:5000 --name my_flask_container my_flask_app
 ```
 
-## Sem Docker (Localmente)
+## Sem Docker
 
 ### Instalar as Dependências:
 
@@ -196,16 +267,12 @@ bash
 docker run --rm -v $(pwd):/app my_flask_app pytest
 ```
 
-### Sem Docker (Localmente)
+### Sem Docker
 
 ```
 bash
 pytest
 ```
-
-## Conclusão
-
-Esta aplicação demonstra uma implementação limpa e modular usando Flask, seguindo os princípios de design SOLID. O projeto é configurado para fácil implantação com Docker e inclui testes abrangentes para garantir a qualidade do código.
 
 # Massa de teste 
 
@@ -278,4 +345,11 @@ Abrindo o JWT, foi encontrado mais de 3 claims.
   "Name": "Valdir Aranha"
 }
 ```
+## Teste curl de API-jwt exposta na AWS com as seguintes validações:
+
+<img width="958" alt="teste curl" src="https://github.com/user-attachments/assets/f192feff-8237-405b-9a04-3f6afb58d36a">
+
+## Conclusão
+
+Esta aplicação demonstra uma implementação limpa e modular usando Flask, seguindo os princípios de design SOLID. O projeto é configurado para fácil implantação com Docker e inclui testes abrangentes para garantir a qualidade do código.
 
