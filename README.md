@@ -33,7 +33,7 @@ app/
 
 # Descrição dos Arquivos e Módulos
 
-##### app.py
+- app.py
 
 Descrição:
 
@@ -45,18 +45,21 @@ Rota /validate: Recebe um JSON com um token JWT e responde com a validade do tok
 Bibliotecas Utilizadas: Flask para o servidor web e PrometheusMetrics para monitoramento.
 
 - requirements.txt
+
 Descrição:
 
 Lista todas as dependências necessárias para executar a aplicação.
 Inclui Flask, Prometheus Flask Exporter, PyJWT e pytest.
 
 - Dockerfile
+
 Descrição:
 
 Contém as instruções para construir a imagem Docker da aplicação.
 Define a imagem base, copia os arquivos, instala as dependências e define o comando de inicialização.
 
 - utils/prime_checker.py
+
 Descrição:
 
 Este módulo contém a lógica para verificar se um número é primo.
@@ -66,6 +69,7 @@ PrimeChecker
 Método is_prime(num): Recebe um número inteiro e retorna True se o número for primo, caso contrário, retorna False.
 
 - utils/jwt_validator.py
+
 Descrição:
 
 Este módulo contém a lógica para validação de JSON Web Tokens (JWTs).
@@ -76,6 +80,7 @@ Método validate(token): Recebe um token JWT e retorna True se o token for váli
 Dependências Internas: Utiliza a classe PrimeChecker para verificar se o valor do campo Seed no JWT é um número primo.
 
 - tests/test_app.py
+
 Descrição:
 
 Contém testes para a aplicação Flask, especificamente para a rota /validate.
@@ -84,6 +89,7 @@ Principais Componentes:
 Testes Unitários: Verificam a funcionalidade da rota /validate com tokens válidos, inválidos e cenários onde o token está ausente.
 
 - tests/utils/test_prime_checker.py
+
 Descrição:
 
 Contém testes unitários para o módulo prime_checker.py.
@@ -92,6 +98,7 @@ Principais Componentes:
 Testes Unitários: Verificam a precisão do método is_prime com diversos números de entrada.
 
 - tests/utils/test_jwt_validator.py
+
 Descrição:
 
 Contém testes unitários para o módulo jwt_validator.py.
@@ -100,9 +107,9 @@ Principais Componentes:
 Testes Unitários: Verificam a precisão do método validate com tokens válidos e inválidos.
 
 #  Definição
+
 Input: Um JWT (string).  
 Output: Um boolean indicando se a valido ou não.
-
 
 
 # Massa de teste 
