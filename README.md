@@ -13,7 +13,7 @@ A aplicação está organizada de acordo com os princípios SOLID para garantir 
 # Estrutura do Projeto
 
 ```
-my_flask_app/
+app/
 │
 ├── app.py
 ├── requirements.txt
@@ -34,6 +34,7 @@ my_flask_app/
 # Descrição dos Arquivos e Módulos
 
 - app.py
+
 Descrição:
 
 Este arquivo contém o código principal da aplicação Flask.
