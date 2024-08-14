@@ -18,8 +18,13 @@ Output: Um boolean indicando se a valido ou não.
 # Estrutura do Projeto
 
 ```
+
+
+.github/workflows/
+├──terraform-apply.yml
+├──terraform-plan.yml
+
 app/
-│
 ├── app.py
 ├── requirements.txt
 ├── Dockerfile
@@ -35,17 +40,25 @@ app/
         ├── test_prime_checker.py
         └── test_jwt_validator.py
 
- ──Insomnia_collection.json
- ──cloudwatch.tf
- ──cluster-ecs.tf
- ──grafana.tf
- ──jwt-validator.tf
- ──main.tf
- ──network.tf
- ──prometheus.tf
+──Insomnia_collection.json
+──cloudwatch.tf
+──cluster-ecs.tf
+──grafana.tf
+──jwt-validator.tf
+──main.tf
+──network.tf
+──prometheus.tf
 ```
 
 # Descrição dos Arquivos e Módulos
+
+- github/workflows
+
+Local onde esta armazenados os arquivos de configuração do CI/CD via Terraform Cloud através do github actions.
+  
+terraform-apply.yml
+
+terraform-plan.yml
 
 - app.py
 
@@ -107,6 +120,38 @@ Contém testes unitários para o módulo jwt_validator.py.
 Principais Componentes:
 
 Testes Unitários: Verificam a precisão do método validate com tokens válidos e inválidos.
+
+- Insomnia_collection.json
+
+Arquivo que contém a coleção das requests via Insomnia.
+
+- cloudwatch.tf
+
+Arquivo terraform para deploy de log group do cloudwatch para aplicação API na AWS.
+
+- cluster-ecs.tf
+
+Arquivo terraform para deploy cluster que será utilizado para serviços ECS na AWS.
+
+- grafana.tf
+
+Arquivo terraform para deploy do serviço Grafana para visualização de dashboards e analise de monitoramento da aplicação jtw_validator em task ecs na AWS.
+
+- jwt-validator.tf
+
+Arquivo terraform para deploy de serviço ECS da aplicação exposta através da AWS.
+
+- main.tf
+
+Arquivo terraform com configurações de provider para provisionar infraestrutura aws.
+
+- network.tf
+
+Arquivo terraform para deploy das configurações de rede como VPC,subnets,IGW, security groups e suas respectivas regras.
+
+- prometheus.tf
+
+Arquivo terraform para deploy de prometheus em task ecs na AWS.
 
 
 ## Como Executar a Aplicação
