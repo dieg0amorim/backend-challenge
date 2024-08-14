@@ -1,6 +1,6 @@
 # Desafio Backend-Challenge
 
-Este projeto é uma aplicação Flask projetada para validar JSON Web Tokens (JWT) e verificar se um número específico é primo. 
+Este projeto é uma aplicação Flask projetada para validar JSON Web Tokens (JWT). 
 A aplicação está organizada de acordo com os princípios SOLID para garantir a modularidade e a sua manutenção.
 
 - Deve ser um JWT válido
@@ -9,6 +9,11 @@ A aplicação está organizada de acordo com os princípios SOLID para garantir 
 - A claim Role deve conter apenas 1 dos três valores (Admin, Member e External)
 - A claim Seed deve ser um número primo.
 - O tamanho máximo da claim Name é de 256 caracteres.
+
+#  Definição
+
+Input: Um JWT (string).  
+Output: Um boolean indicando se a valido ou não.
 
 # Estrutura do Projeto
 
@@ -29,6 +34,15 @@ app/
         ├── __init__.py
         ├── test_prime_checker.py
         └── test_jwt_validator.py
+
+ ──Insomnia_collection.json
+ ──cloudwatch.tf
+ ──cluster-ecs.tf
+ ──grafana.tf
+ ──jwt-validator.tf
+ ──main.tf
+ ──network.tf
+ ──prometheus.tf
 ```
 
 # Descrição dos Arquivos e Módulos
@@ -106,11 +120,59 @@ Principais Componentes:
 
 Testes Unitários: Verificam a precisão do método validate com tokens válidos e inválidos.
 
-#  Definição
 
-Input: Um JWT (string).  
-Output: Um boolean indicando se a valido ou não.
+## Como Executar a Aplicação
 
+### Com Docker
+
+Construir a Imagem Docker:
+
+```
+bash
+docker build -t my_flask_app .
+
+```
+### Executar o Container:
+```
+bash
+docker run -d -p 5000:5000 --name my_flask_container my_flask_app
+```
+
+## Sem Docker (Localmente)
+
+### Instalar as Dependências:
+
+```
+bash
+pip install -r requirements.txt
+```
+
+### Executar a Aplicação:
+
+```
+bash
+python app.py
+```
+
+## Como Executar os Testes
+
+### Com Docker
+
+```
+bash
+docker run --rm -v $(pwd):/app my_flask_app pytest
+```
+
+### Sem Docker (Localmente)
+
+```
+bash
+pytest
+```
+
+## Conclusão
+
+Esta aplicação demonstra uma implementação limpa e modular usando Flask, seguindo os princípios de design SOLID. O projeto é configurado para fácil implantação com Docker e inclui testes abrangentes para garantir a qualidade do código.
 
 # Massa de teste 
 
@@ -183,3 +245,4 @@ Abrindo o JWT, foi encontrado mais de 3 claims.
   "Name": "Valdir Aranha"
 }
 ```
+
