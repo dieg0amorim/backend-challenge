@@ -53,6 +53,7 @@ Este arquivo contém o código principal da aplicação Flask.
 Define um endpoint /validate para validar JWTs recebidos através de uma requisição POST.
 
 Principais Componentes:
+
 Rota /validate: Recebe um JSON com um token JWT e responde com a validade do token.
 Bibliotecas Utilizadas: Flask para o servidor web e PrometheusMetrics para monitoramento.
 
@@ -86,6 +87,7 @@ Dependências Internas: Utiliza a classe PrimeChecker para verificar se o valor 
 - tests/test_app.py
 
 Contém testes para a aplicação Flask, especificamente para a rota /validate.
+
 Principais Componentes:
 
 Testes Unitários: Verificam a funcionalidade da rota /validate com tokens válidos, inválidos e cenários onde o token está ausente.
@@ -93,6 +95,7 @@ Testes Unitários: Verificam a funcionalidade da rota /validate com tokens váli
 - tests/utils/test_prime_checker.py
 
 Contém testes unitários para o módulo prime_checker.py.
+
 Principais Componentes:
 
 Testes Unitários: Verificam a precisão do método is_prime com diversos números de entrada.
@@ -100,6 +103,7 @@ Testes Unitários: Verificam a precisão do método is_prime com diversos númer
 - tests/utils/test_jwt_validator.py
 
 Contém testes unitários para o módulo jwt_validator.py.
+
 Principais Componentes:
 
 Testes Unitários: Verificam a precisão do método validate com tokens válidos e inválidos.
