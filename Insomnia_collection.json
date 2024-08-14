@@ -1,0 +1,186 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2024-08-14T00:26:36.444Z",
+    "__export_source": "insomnia.desktop.app:v9.3.3",
+    "resources": [
+        {
+            "_id": "req_6c56cfc5b1684198af2c59ff96acba68",
+            "parentId": "wrk_501d917d85ea4d66b36060c3e0e1aabf",
+            "modified": 1723595150703,
+            "created": 1723167369921,
+            "url": "http://3.88.160.188:5000/validate",
+            "name": "Caso 1",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "        {\n         \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiNzg0MSIsIk5hbWUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05sIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg\"\n        }"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_9e8071766fd0483d9fb926ec2426998a"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/9.3.3",
+                    "id": "pair_cbed0701c19343ea9c738ea283df2460"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1723594875290,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "wrk_501d917d85ea4d66b36060c3e0e1aabf",
+            "parentId": null,
+            "modified": 1723594810199,
+            "created": 1723167363553,
+            "name": "Backend_Challenge",
+            "description": "",
+            "scope": "collection",
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_f6de49917926418dbf581cf4f43bc811",
+            "parentId": "wrk_501d917d85ea4d66b36060c3e0e1aabf",
+            "modified": 1723595156122,
+            "created": 1723594875190,
+            "url": "http://3.88.160.188:5000/validate",
+            "name": "Caso 2",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "        {\n         \"token\": \"eyJhbGciOiJzI1NiJ9.dfsdfsfryJSr2xrIjoiQWRtaW4iLCJTZrkIjoiNzg0MSIsIk5hbrUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05fsdfsIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg\"\n        }"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/9.3.3"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1723594875190,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_ef1e0c427b1c455e91e025cf26dedd5f",
+            "parentId": "wrk_501d917d85ea4d66b36060c3e0e1aabf",
+            "modified": 1723595165380,
+            "created": 1723594912095,
+            "url": "http://3.88.160.188:5000/validate",
+            "name": "Caso 3",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "        {\n         \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiRXh0ZXJuYWwiLCJTZWVkIjoiODgwMzciLCJOYW1lIjoiTTRyaWEgT2xpdmlhIn0.6YD73XWZYQSSMDf6H0i3-kylz1-TY_Yt6h1cV2Ku-Qs\"\n        }"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/9.3.3"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1723594875140,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_ba113998a1fb4aa39de11abfb0b2d25d",
+            "parentId": "wrk_501d917d85ea4d66b36060c3e0e1aabf",
+            "modified": 1723595171991,
+            "created": 1723594917138,
+            "url": "http://3.88.160.188:5000/validate",
+            "name": "Caso 4",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "        {\n         \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiTWVtYmVyIiwiT3JnIjoiQlIiLCJTZWVkIjoiMTQ2MjciLCJOYW1lIjoiVmFsZGlyIEFyYW5oYSJ9.cmrXV_Flm5mfdpfNUVopY_I2zeJUy4EZ4i3Fea98zvY\"\n        }"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/9.3.3"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1723594875090,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "env_588652869449ebe2bbed4275aad123de3cb4f833",
+            "parentId": "wrk_501d917d85ea4d66b36060c3e0e1aabf",
+            "modified": 1723167363556,
+            "created": 1723167363556,
+            "name": "Base Environment",
+            "data": {},
+            "dataPropertyOrder": null,
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1723167363556,
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_588652869449ebe2bbed4275aad123de3cb4f833",
+            "parentId": "wrk_501d917d85ea4d66b36060c3e0e1aabf",
+            "modified": 1723167363560,
+            "created": 1723167363560,
+            "name": "Default Jar",
+            "cookies": [],
+            "_type": "cookie_jar"
+        }
+    ]
+}
